@@ -1,0 +1,12 @@
+[package]
+name = "syntaxdot-labels"
+version = "0.1.0"
+edition = "2018"
+
+[dependencies]
+anyhow = "1"
+clap = "2"
+conllu = "0.7"
+syntaxdot-encoders = "0.4"
+stdinout = "0.4"
+udgraph = "0.7"
