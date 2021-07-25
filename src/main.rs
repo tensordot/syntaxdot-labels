@@ -16,7 +16,7 @@ static DEFAULT_CLAP_SETTINGS: &[AppSettings] = &[
 
 fn main() -> Result<()> {
     // Known subapplications.
-    let apps = vec![subcommands::Dependency::app()];
+    let apps = vec![subcommands::Dependency::app(), subcommands::Lemma::app()];
 
     let cli = App::new("syntaxdot")
         .settings(DEFAULT_CLAP_SETTINGS)
@@ -42,9 +42,9 @@ fn main() -> Result<()> {
             Ok(())
         }
         "dependency" => {
-            subcommands::Dependency::parse(matches.subcommand_matches("dependency").unwrap())?
-                .run()
+            subcommands::Dependency::parse(matches.subcommand_matches("dependency").unwrap())?.run()
         }
+        "lemma" => subcommands::Lemma::parse(matches.subcommand_matches("lemma").unwrap())?.run(),
         _unknown => unreachable!(),
     }
 }
